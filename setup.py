@@ -43,6 +43,9 @@ setup(
     long_description='Package with various python tools created to help analysis on Geovistory and other SPARQL endpoints.',
     packages=find_packages(),
     install_require=[
+        "gmpykit",
+        "pandas",
+        "SPARQLWrapper"
     ],
     keywords=['python', 'toolkit', 'utilities', 'utils', 'tools', 'sparql']
 )
