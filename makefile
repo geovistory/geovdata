@@ -20,7 +20,7 @@ build:
 publish:
 	twine upload dist/*
 
-install:
+install-local:
 	pip install -e .
 
 push:
