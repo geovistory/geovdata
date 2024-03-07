@@ -6,22 +6,22 @@ clean:
 	rm -rf ./geovdata.egg-info
 
 upgrade-version-patch:
-	python3 setup-prepare.py patch
+	python3.10 setup-prepare.py patch
 
 upgrade-version-minor:
-	python3 setup-prepare.py minor
+	python3.10 setup-prepare.py minor
 
 upgrade-version-major:
-	python3 setup-prepare.py major
+	python3.10 setup-prepare.py major
 
 build:
-	python3 setup.py sdist bdist_wheel
+	python3.10 setup.py sdist bdist_wheel
 
 publish:
 	twine upload dist/*
 
 install-local:
-	pip install -e .
+	python3.10 -m pip install -e .
 
 push:
 	version=$(shell cat version.txt)
@@ -32,4 +32,4 @@ push:
 publish-patch: clean upgrade-version-patch build publish push install
 publish-minor: clean upgrade-version-minor build publish push install
 publish-major: clean upgrade-version-major build publish push install
-install: clean build install
+install: clean build install-local
